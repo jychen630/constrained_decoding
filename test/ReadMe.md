@@ -31,7 +31,8 @@ pip install transformers datasets accelerate wandb
 ```
 
 ## 🔁 Running Inference
-###🔹 Template-Constrained Inference
+
+### 🔹 Template-Constrained Inference
 ```
 ./run_inference.sh
 ```
