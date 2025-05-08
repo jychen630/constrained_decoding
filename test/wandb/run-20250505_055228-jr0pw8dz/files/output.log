@@ -1,0 +1,7 @@
+  0%|                                                                                                                                 | 0/5 [00:00<?, ?it/s]Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+ 20%|████████████████████████▏                                                                                                | 1/5 [00:01<00:06,  1.68s/it]Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+ 40%|████████████████████████████████████████████████▍                                                                        | 2/5 [00:02<00:04,  1.41s/it]Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+ 60%|████████████████████████████████████████████████████████████████████████▌                                                | 3/5 [00:04<00:02,  1.37s/it]Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+ 80%|████████████████████████████████████████████████████████████████████████████████████████████████▊                        | 4/5 [00:05<00:01,  1.33s/it]Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 5/5 [00:06<00:00,  1.33s/it]
+Saved generated outputs to: /home/rg3637/hpml-assign2/hpml-project/output/because_mode_gen-modelgpt2-beams3-ret3.jsonl

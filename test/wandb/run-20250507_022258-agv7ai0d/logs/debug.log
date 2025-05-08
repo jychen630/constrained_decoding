@@ -1,0 +1,29 @@
+2025-05-07 02:22:58,428 INFO    MainThread:1056060 [wandb_setup.py:_flush():68] Current SDK version is 0.19.10
+2025-05-07 02:22:58,428 INFO    MainThread:1056060 [wandb_setup.py:_flush():68] Configure stats pid to 1056060
+2025-05-07 02:22:58,428 INFO    MainThread:1056060 [wandb_setup.py:_flush():68] Loading settings from /home/rg3637/.config/wandb/settings
+2025-05-07 02:22:58,432 INFO    MainThread:1056060 [wandb_setup.py:_flush():68] Loading settings from /home/rg3637/hpml-assign2/hpml-project/wandb/settings
+2025-05-07 02:22:58,432 INFO    MainThread:1056060 [wandb_setup.py:_flush():68] Loading settings from environment variables
+2025-05-07 02:22:58,435 INFO    MainThread:1056060 [wandb_init.py:setup_run_log_directory():724] Logging user logs to /home/rg3637/hpml-assign2/hpml-project/wandb/run-20250507_022258-agv7ai0d/logs/debug.log
+2025-05-07 02:22:58,439 INFO    MainThread:1056060 [wandb_init.py:setup_run_log_directory():725] Logging internal logs to /home/rg3637/hpml-assign2/hpml-project/wandb/run-20250507_022258-agv7ai0d/logs/debug-internal.log
+2025-05-07 02:22:58,439 INFO    MainThread:1056060 [wandb_init.py:init():852] calling init triggers
+2025-05-07 02:22:58,443 INFO    MainThread:1056060 [wandb_init.py:init():857] wandb.init called with sweep_config: {}
+config: {'model_name': 'google-bert/bert-base-cased', 'num_beams': 5, 'num_return_sequences': 5, 'max_length': 100, 'input_file': 'because_mode_OrderedTemplate.jsonl', '_wandb': {}}
+2025-05-07 02:22:58,446 INFO    MainThread:1056060 [wandb_init.py:init():893] starting backend
+2025-05-07 02:22:58,450 INFO    MainThread:1056060 [wandb_init.py:init():897] sending inform_init request
+2025-05-07 02:22:58,504 INFO    MainThread:1056060 [backend.py:_multiprocessing_setup():101] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2025-05-07 02:22:58,504 INFO    MainThread:1056060 [wandb_init.py:init():907] backend started and connected
+2025-05-07 02:22:58,507 INFO    MainThread:1056060 [wandb_init.py:init():1002] updated telemetry
+2025-05-07 02:22:58,509 INFO    MainThread:1056060 [wandb_init.py:init():1026] communicating run to backend with 90.0 second timeout
+2025-05-07 02:22:58,831 INFO    MainThread:1056060 [wandb_init.py:init():1101] starting run threads in backend
+2025-05-07 02:23:00,561 INFO    MainThread:1056060 [wandb_run.py:_console_start():2566] atexit reg
+2025-05-07 02:23:00,561 INFO    MainThread:1056060 [wandb_run.py:_redirect():2414] redirect: wrap_raw
+2025-05-07 02:23:00,565 INFO    MainThread:1056060 [wandb_run.py:_redirect():2483] Wrapping output streams.
+2025-05-07 02:23:00,565 INFO    MainThread:1056060 [wandb_run.py:_redirect():2506] Redirects installed.
+2025-05-07 02:23:00,595 INFO    MainThread:1056060 [wandb_init.py:init():1147] run started, returning control to user process
+2025-05-07 03:17:35,354 INFO    MainThread:1056060 [wandb_run.py:_finish():2314] finishing run rg3637-columbia-university/ordered-constrained-gen-inference/agv7ai0d
+2025-05-07 03:17:35,354 INFO    MainThread:1056060 [wandb_run.py:_atexit_cleanup():2531] got exitcode: 0
+2025-05-07 03:17:35,355 INFO    MainThread:1056060 [wandb_run.py:_restore():2513] restore
+2025-05-07 03:17:35,356 INFO    MainThread:1056060 [wandb_run.py:_restore():2519] restore done
+2025-05-07 03:17:35,842 INFO    MainThread:1056060 [wandb_run.py:_footer_history_summary_info():4160] rendering history
+2025-05-07 03:17:35,842 INFO    MainThread:1056060 [wandb_run.py:_footer_history_summary_info():4192] rendering summary
+2025-05-07 03:17:35,843 INFO    MainThread:1056060 [wandb_run.py:_footer_sync_info():4121] logging synced files

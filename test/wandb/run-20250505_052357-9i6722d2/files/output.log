@@ -1,0 +1,102 @@
+  0%|                                                                                                                                      | 0/675 [00:00<?, ?it/s]/home/rg3637/hpml-assign2/hpml-project/transformers/src/transformers/generation/configuration_utils.py:628: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.0` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+  0%|▏                                                                                                                             | 1/675 [00:03<41:11,  3.67s/it]/home/rg3637/hpml-assign2/hpml-project/transformers/src/transformers/generation/configuration_utils.py:628: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.0` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+  0%|▎                                                                                                                             | 2/675 [00:05<31:42,  2.83s/it]Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+  0%|▌                                                                                                                             | 3/675 [00:08<28:03,  2.51s/it]Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+  1%|▋                                                                                                                             | 4/675 [00:10<27:23,  2.45s/it]Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+  1%|▉                                                                                                                             | 5/675 [00:12<26:51,  2.41s/it]Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+  1%|█                                                                                                                             | 6/675 [00:15<26:33,  2.38s/it]Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+  1%|█▎                                                                                                                            | 7/675 [00:17<25:34,  2.30s/it]Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+  1%|█▍                                                                                                                            | 8/675 [00:19<24:53,  2.24s/it]Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+  1%|█▋                                                                                                                            | 9/675 [00:21<25:02,  2.26s/it]Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+  1%|█▊                                                                                                                           | 10/675 [00:24<26:58,  2.43s/it]Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+  2%|██                                                                                                                           | 11/675 [00:26<26:40,  2.41s/it]Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+  2%|██▏                                                                                                                          | 12/675 [00:29<26:22,  2.39s/it]Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+  2%|██▍                                                                                                                          | 13/675 [00:31<26:23,  2.39s/it]Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+  2%|██▌                                                                                                                          | 14/675 [00:33<26:33,  2.41s/it]Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+  2%|██▊                                                                                                                          | 15/675 [00:36<26:30,  2.41s/it]Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+  2%|██▉                                                                                                                          | 16/675 [00:38<26:57,  2.45s/it]Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+  2%|██▉                                                                                                                          | 16/675 [00:41<28:15,  2.57s/it]
+Traceback (most recent call last):
+  File "/home/rg3637/hpml-assign2/hpml-project/inference_TemplateConstraint.py", line 139, in <module>
+    main()
+  File "/home/rg3637/hpml-assign2/hpml-project/inference_TemplateConstraint.py", line 121, in main
+    wandb.log({
+  File "/home/rg3637/anaconda3/envs/hpml/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 406, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/rg3637/anaconda3/envs/hpml/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 503, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/rg3637/anaconda3/envs/hpml/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 464, in wrapper_fn
+    return func(self, *args, **kwargs)
+  File "/home/rg3637/anaconda3/envs/hpml/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 451, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/rg3637/anaconda3/envs/hpml/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 2064, in log
+    self._log(data=data, step=step, commit=commit)
+  File "/home/rg3637/anaconda3/envs/hpml/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 1776, in _log
+    self._partial_history_callback(data, step, commit)
+  File "/home/rg3637/anaconda3/envs/hpml/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 406, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/rg3637/anaconda3/envs/hpml/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 1603, in _partial_history_callback
+    self._backend.interface.publish_partial_history(
+  File "/home/rg3637/anaconda3/envs/hpml/lib/python3.9/site-packages/wandb/sdk/interface/interface.py", line 674, in publish_partial_history
+    data = history_dict_to_json(run, data, step=user_step, ignore_copy_err=True)
+  File "/home/rg3637/anaconda3/envs/hpml/lib/python3.9/site-packages/wandb/sdk/data_types/utils.py", line 54, in history_dict_to_json
+    payload[key] = val_to_json(
+  File "/home/rg3637/anaconda3/envs/hpml/lib/python3.9/site-packages/wandb/sdk/data_types/utils.py", line 155, in val_to_json
+    run.log_artifact(art)
+  File "/home/rg3637/anaconda3/envs/hpml/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 406, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/rg3637/anaconda3/envs/hpml/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 464, in wrapper_fn
+    return func(self, *args, **kwargs)
+  File "/home/rg3637/anaconda3/envs/hpml/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 451, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/rg3637/anaconda3/envs/hpml/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 3302, in log_artifact
+    return self._log_artifact(
+  File "/home/rg3637/anaconda3/envs/hpml/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 3457, in _log_artifact
+    self._assert_can_log_artifact(artifact)
+  File "/home/rg3637/anaconda3/envs/hpml/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 3508, in _assert_can_log_artifact
+    expected_type = Artifact._expected_type(
+  File "/home/rg3637/anaconda3/envs/hpml/lib/python3.9/site-packages/wandb/sdk/artifacts/artifact.py", line 2432, in _expected_type
+    response = client.execute(
+  File "/home/rg3637/anaconda3/envs/hpml/lib/python3.9/site-packages/wandb/sdk/lib/retry.py", line 215, in wrapped_fn
+    return retrier(*args, **kargs)
+  File "/home/rg3637/anaconda3/envs/hpml/lib/python3.9/site-packages/wandb/sdk/lib/retry.py", line 134, in __call__
+    result = self._call_fn(*args, **kwargs)
+  File "/home/rg3637/anaconda3/envs/hpml/lib/python3.9/site-packages/wandb/apis/public/api.py", line 82, in execute
+    return self._client.execute(*args, **kwargs)
+  File "/home/rg3637/anaconda3/envs/hpml/lib/python3.9/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 52, in execute
+    result = self._get_result(document, *args, **kwargs)
+  File "/home/rg3637/anaconda3/envs/hpml/lib/python3.9/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 60, in _get_result
+    return self.transport.execute(document, *args, **kwargs)
+  File "/home/rg3637/anaconda3/envs/hpml/lib/python3.9/site-packages/wandb/sdk/lib/gql_request.py", line 58, in execute
+    request = self.session.post(self.url, **post_args)
+  File "/home/rg3637/anaconda3/envs/hpml/lib/python3.9/site-packages/requests/sessions.py", line 637, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+  File "/home/rg3637/anaconda3/envs/hpml/lib/python3.9/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/rg3637/anaconda3/envs/hpml/lib/python3.9/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/rg3637/anaconda3/envs/hpml/lib/python3.9/site-packages/requests/adapters.py", line 667, in send
+    resp = conn.urlopen(
+  File "/home/rg3637/anaconda3/envs/hpml/lib/python3.9/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+  File "/home/rg3637/anaconda3/envs/hpml/lib/python3.9/site-packages/urllib3/connectionpool.py", line 534, in _make_request
+    response = conn.getresponse()
+  File "/home/rg3637/anaconda3/envs/hpml/lib/python3.9/site-packages/urllib3/connection.py", line 516, in getresponse
+    httplib_response = super().getresponse()
+  File "/home/rg3637/anaconda3/envs/hpml/lib/python3.9/http/client.py", line 1377, in getresponse
+    response.begin()
+  File "/home/rg3637/anaconda3/envs/hpml/lib/python3.9/http/client.py", line 320, in begin
+    version, status, reason = self._read_status()
+  File "/home/rg3637/anaconda3/envs/hpml/lib/python3.9/http/client.py", line 281, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/home/rg3637/anaconda3/envs/hpml/lib/python3.9/socket.py", line 716, in readinto
+    return self._sock.recv_into(b)
+  File "/home/rg3637/anaconda3/envs/hpml/lib/python3.9/ssl.py", line 1275, in recv_into
+    return self.read(nbytes, buffer)
+  File "/home/rg3637/anaconda3/envs/hpml/lib/python3.9/ssl.py", line 1133, in read
+    return self._sslobj.read(len, buffer)
+KeyboardInterrupt

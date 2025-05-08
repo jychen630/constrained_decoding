@@ -1,0 +1,7 @@
+{"time":"2025-05-08T04:14:43.132387507-04:00","level":"INFO","msg":"stream: starting","core version":"0.19.10","symlink path":"/home/rg3637/hpml-assign2/hpml-project/wandb/run-20250508_041443-a9ln856j/logs/debug-core.log"}
+{"time":"2025-05-08T04:14:43.312386208-04:00","level":"INFO","msg":"created new stream","id":"a9ln856j"}
+{"time":"2025-05-08T04:14:43.31242278-04:00","level":"INFO","msg":"stream: started","id":"a9ln856j"}
+{"time":"2025-05-08T04:14:43.312434369-04:00","level":"INFO","msg":"writer: Do: started","stream_id":"a9ln856j"}
+{"time":"2025-05-08T04:14:43.312487494-04:00","level":"INFO","msg":"handler: started","stream_id":"a9ln856j"}
+{"time":"2025-05-08T04:14:43.312591225-04:00","level":"INFO","msg":"sender: started","stream_id":"a9ln856j"}
+{"time":"2025-05-08T04:14:43.497599806-04:00","level":"INFO","msg":"Starting system monitor"}

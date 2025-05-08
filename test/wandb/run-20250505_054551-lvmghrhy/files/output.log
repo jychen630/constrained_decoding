@@ -1,0 +1,5 @@
+  0%|                                                                                                                                 | 0/1 [00:00<?, ?it/s]The attention mask and the pad token id were not set. As a consequence, you may observe unexpected behavior. Please pass your input's `attention_mask` to obtain reliable results.
+Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+The attention mask is not set and cannot be inferred from input because pad token is same as eos token. As a consequence, you may observe unexpected behavior. Please pass your input's `attention_mask` to obtain reliable results.
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:02<00:00,  2.42s/it]
+Saved generated outputs to: /home/rg3637/hpml-assign2/hpml-project/output/because_mode_gen-modelgpt2-beams3-ret3.jsonl

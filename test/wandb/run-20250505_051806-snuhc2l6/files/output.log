@@ -1,0 +1,36 @@
+  0%|                                                                                                                                      | 0/675 [00:00<?, ?it/s]/home/rg3637/hpml-assign2/hpml-project/transformers/src/transformers/generation/configuration_utils.py:628: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.0` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+A decoder-only architecture is being used, but right-padding was detected! For correct generation results, please set `padding_side='left'` when initializing the tokenizer.
+  0%|▏                                                                                                                             | 1/675 [00:03<41:38,  3.71s/it]/home/rg3637/hpml-assign2/hpml-project/transformers/src/transformers/generation/configuration_utils.py:628: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.0` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+A decoder-only architecture is being used, but right-padding was detected! For correct generation results, please set `padding_side='left'` when initializing the tokenizer.
+  0%|▎                                                                                                                             | 2/675 [00:05<32:01,  2.86s/it]Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+A decoder-only architecture is being used, but right-padding was detected! For correct generation results, please set `padding_side='left'` when initializing the tokenizer.
+  0%|▌                                                                                                                             | 3/675 [00:08<28:23,  2.53s/it]Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+A decoder-only architecture is being used, but right-padding was detected! For correct generation results, please set `padding_side='left'` when initializing the tokenizer.
+  1%|▋                                                                                                                             | 4/675 [00:10<27:38,  2.47s/it]Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+A decoder-only architecture is being used, but right-padding was detected! For correct generation results, please set `padding_side='left'` when initializing the tokenizer.
+  1%|▉                                                                                                                             | 5/675 [00:12<26:48,  2.40s/it]Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+A decoder-only architecture is being used, but right-padding was detected! For correct generation results, please set `padding_side='left'` when initializing the tokenizer.
+  1%|█                                                                                                                             | 6/675 [00:14<25:59,  2.33s/it]Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+A decoder-only architecture is being used, but right-padding was detected! For correct generation results, please set `padding_side='left'` when initializing the tokenizer.
+  1%|█▎                                                                                                                            | 7/675 [00:17<24:52,  2.23s/it]Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+A decoder-only architecture is being used, but right-padding was detected! For correct generation results, please set `padding_side='left'` when initializing the tokenizer.
+  1%|█▍                                                                                                                            | 8/675 [00:19<24:31,  2.21s/it]Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+  1%|█▋                                                                                                                            | 9/675 [00:21<24:50,  2.24s/it]Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+A decoder-only architecture is being used, but right-padding was detected! For correct generation results, please set `padding_side='left'` when initializing the tokenizer.
+  1%|█▋                                                                                                                            | 9/675 [00:22<27:38,  2.49s/it]
+Traceback (most recent call last):
+  File "/home/rg3637/hpml-assign2/hpml-project/inference_TemplateConstraint.py", line 137, in <module>
+    main()
+  File "/home/rg3637/hpml-assign2/hpml-project/inference_TemplateConstraint.py", line 90, in main
+    outputs = model.generate(
+  File "/home/rg3637/anaconda3/envs/hpml/lib/python3.9/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "/home/rg3637/hpml-assign2/hpml-project/transformers/src/transformers/generation/utils.py", line 2451, in generate
+    result = self._constrained_beam_search(
+  File "/home/rg3637/hpml-assign2/hpml-project/transformers/src/transformers/generation/utils.py", line 4379, in _constrained_beam_search
+    next_indices = (next_tokens / vocab_size).long()
+KeyboardInterrupt

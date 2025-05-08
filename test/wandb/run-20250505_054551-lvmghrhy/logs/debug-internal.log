@@ -1,0 +1,16 @@
+{"time":"2025-05-05T05:45:51.272611048-04:00","level":"INFO","msg":"stream: starting","core version":"0.19.10","symlink path":"/home/rg3637/hpml-assign2/hpml-project/wandb/run-20250505_054551-lvmghrhy/logs/debug-core.log"}
+{"time":"2025-05-05T05:45:51.452827558-04:00","level":"INFO","msg":"created new stream","id":"lvmghrhy"}
+{"time":"2025-05-05T05:45:51.452915244-04:00","level":"INFO","msg":"stream: started","id":"lvmghrhy"}
+{"time":"2025-05-05T05:45:51.45299548-04:00","level":"INFO","msg":"handler: started","stream_id":"lvmghrhy"}
+{"time":"2025-05-05T05:45:51.453060896-04:00","level":"INFO","msg":"sender: started","stream_id":"lvmghrhy"}
+{"time":"2025-05-05T05:45:51.45311479-04:00","level":"INFO","msg":"writer: Do: started","stream_id":"lvmghrhy"}
+{"time":"2025-05-05T05:45:51.66274754-04:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-05-05T05:45:54.384703167-04:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-05-05T05:45:54.384822394-04:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-05-05T05:45:54.684321918-04:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-05-05T05:45:54.81949265-04:00","level":"INFO","msg":"handler: operation stats","stats":{}}
+{"time":"2025-05-05T05:45:54.824601204-04:00","level":"INFO","msg":"stream: closing","id":"lvmghrhy"}
+{"time":"2025-05-05T05:45:54.824619302-04:00","level":"INFO","msg":"handler: closed","stream_id":"lvmghrhy"}
+{"time":"2025-05-05T05:45:54.824626274-04:00","level":"INFO","msg":"writer: Close: closed","stream_id":"lvmghrhy"}
+{"time":"2025-05-05T05:45:54.824721916-04:00","level":"INFO","msg":"sender: closed","stream_id":"lvmghrhy"}
+{"time":"2025-05-05T05:45:54.825317008-04:00","level":"INFO","msg":"stream: closed","id":"lvmghrhy"}

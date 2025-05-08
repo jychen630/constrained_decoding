@@ -1,0 +1,24 @@
+  0%|                                                                                                                                | 0/85 [00:00<?, ?it/s]/home/rg3637/hpml-assign2/hpml-project/transformers/src/transformers/generation/configuration_utils.py:628: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.0` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+  0%|                                                                                                                                | 0/85 [00:18<?, ?it/s]
+Traceback (most recent call last):
+  File "/home/rg3637/hpml-assign2/hpml-project/inference_TemplateConstraint.py", line 137, in <module>
+    main()
+  File "/home/rg3637/hpml-assign2/hpml-project/inference_TemplateConstraint.py", line 90, in main
+    outputs = model.generate(
+  File "/home/rg3637/anaconda3/envs/hpml/lib/python3.9/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "/home/rg3637/hpml-assign2/hpml-project/transformers/src/transformers/generation/utils.py", line 2451, in generate
+    result = self._constrained_beam_search(
+  File "/home/rg3637/hpml-assign2/hpml-project/transformers/src/transformers/generation/utils.py", line 4407, in _constrained_beam_search
+    model_kwargs["past_key_values"] = self._temporary_reorder_cache(
+  File "/home/rg3637/hpml-assign2/hpml-project/transformers/src/transformers/generation/utils.py", line 3399, in _temporary_reorder_cache
+    past_key_values = self._reorder_cache(past_key_values, beam_idx)
+  File "/home/rg3637/hpml-assign2/hpml-project/transformers/src/transformers/models/gpt2/modeling_gpt2.py", line 1118, in _reorder_cache
+    return tuple(
+  File "/home/rg3637/hpml-assign2/hpml-project/transformers/src/transformers/models/gpt2/modeling_gpt2.py", line 1119, in <genexpr>
+    tuple(past_state.index_select(0, beam_idx.to(past_state.device)) for past_state in layer_past)
+  File "/home/rg3637/hpml-assign2/hpml-project/transformers/src/transformers/models/gpt2/modeling_gpt2.py", line 1119, in <genexpr>
+    tuple(past_state.index_select(0, beam_idx.to(past_state.device)) for past_state in layer_past)
+KeyboardInterrupt

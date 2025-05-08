@@ -1,0 +1,16 @@
+  0%|                                                                                                                                 | 0/5 [00:00<?, ?it/s]Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+ 20%|████████████████████████▏                                                                                                | 1/5 [00:01<00:06,  1.70s/it]Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+ 40%|████████████████████████████████████████████████▍                                                                        | 2/5 [00:02<00:04,  1.42s/it]Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+ 40%|████████████████████████████████████████████████▍                                                                        | 2/5 [00:04<00:06,  2.03s/it]
+Traceback (most recent call last):
+  File "/home/rg3637/hpml-assign2/hpml-project/inference_TemplateConstraint.py", line 135, in <module>
+    main()
+  File "/home/rg3637/hpml-assign2/hpml-project/inference_TemplateConstraint.py", line 88, in main
+    outputs = model.generate(
+  File "/home/rg3637/anaconda3/envs/hpml/lib/python3.9/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "/home/rg3637/hpml-assign2/hpml-project/transformers/src/transformers/generation/utils.py", line 2451, in generate
+    result = self._constrained_beam_search(
+  File "/home/rg3637/hpml-assign2/hpml-project/transformers/src/transformers/generation/utils.py", line 4379, in _constrained_beam_search
+    next_indices = (next_tokens / vocab_size).long()
+KeyboardInterrupt
