@@ -9,8 +9,11 @@ import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
 from transformers.generation.beam_constraints import TemplateConstraint
 import wandb
-
-wandb.login(key="<insert_key_here>")
+import os
+# do this before running the script
+# export WANDB_API_KEY=00000000000000000000000000000000
+# export CUDA_VISIBLE_DEVICES=3 # your GPU id
+wandb.login(key=os.getenv("WANDB_API_KEY"))
 from tqdm import tqdm
 
 
@@ -27,7 +30,10 @@ def parse_args():
 
 def load_model_and_tokenizer(model_name, cache_dir):
     tokenizer = AutoTokenizer.from_pretrained(model_name, cache_dir=cache_dir)
-    tokenizer.pad_token_id = tokenizer.eos_token_id
+    
+    if tokenizer.pad_token_id is None:
+        tokenizer.pad_token_id = tokenizer.eos_token_id
+    
     model = AutoModelForCausalLM.from_pretrained(model_name, cache_dir=cache_dir, device_map="auto")
     return model, tokenizer
 
@@ -100,6 +106,7 @@ def main():
             early_stopping=True,
             no_repeat_ngram_size=2,
             do_sample=False,
+            pad_token_id=tokenizer.pad_token_id
         )
         torch.cuda.synchronize() if torch.cuda.is_available() else None
         end_time = time.time()
