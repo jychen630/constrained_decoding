@@ -7,6 +7,15 @@ This repo is a wrapper repo to the forked [`huggingface/transformer`](https://gi
 - **generation/**: The core files we changed to the `transformers` library.
 
 - **test/**: Extensive test scripts or test cases for our features implementation.
+This directory contains code to evaluate template-constrained and ordered-constrained generation on various language models using beam search. The evaluation compares generation quality, constraint satisfaction, and inference performance across models like `GPT-2`, `BERT`, and `LLaMA-3`.
+   - `inference_TemplateConstraint.py`: Inference script for template-constrained generation.
+   - `inference_OrderedConstraint.py`: Inference script for ordered-constrained generation.
+   - `run_inference.sh`: Runs inference using templates from `because_mode.jsonl`.
+   - `run_inference_ordered.sh`: Runs ordered inference from `because_mode_OrderedTemplate.jsonl`.
+   - `get_metrics.py`: Script to compute and report metrics including:
+   - Template satisfaction accuracy
+   - Average generation time per sentence
+   - Average time per token
 
 - **assets/**: Miscellenais files like images or other notekeeping files.
 
@@ -39,6 +48,61 @@ Namely, please dont do `pip install transformers` but do the installation throug
    pip install wandb torch
    pip install 'accelerate>=0.26.0'
    ```
+
+4. To run the test,
+```
+cd test
+chmod +x run_inference.sh          # for TemplateConstraint class
+chmod +x run_inference_ordered.sh  # for OrderedConstraints class
+./run_inference.sh
+./run_inference_ordered.sh
+
+```
+This runs `inference_TemplateConstraint.py` across combinations of:
+
+Models: `gpt2`, `google-bert/bert-base-cased`, `meta-llama/Meta-Llama-3-8B-Instruct`
+
+Beam sizes: 3, 5
+
+Maximum output lengths: 20, 100
+
+5. After generating output files, run:
+```
+python get_metrics.py
+```
+This will parse the .jsonl output files and print aggregated metrics including accuracy and inference time statistics.
+
+
+## Results
+
+### Template Constraint
+- [🧾 Template-Constrained Generation W&B Report](https://wandb.ai/rg3637-columbia-university/template-constrained-gen-inference/reports/Template-Constraints--VmlldzoxMjY3OTE4NA?accessToken=methzkvxuzk9rp8zw857xepc9ppqe5syoekq5vacu9lj8q7ejnoe3i94j0shfbwd)
+- [🧾 Ordered-Constrained Generation W&B Report](https://wandb.ai/rg3637-columbia-university/ordered-constrained-gen-inference/reports/Ordered-Constraints--VmlldzoxMjY3OTE2Nw?accessToken=pwzkqsdabpjl6700vlx3s5jvgaudh7tjp3ib7ptz9bj28il8prtmcpezbxplzujz)
+
+
+![Accuracy across models (Template Constraint)](assets/accuracy_comparison_across_models_template.png)
+
+
+![Time_per_token across models (Template Constraint)](assets/time_per_token_comparison_across_models_template.png)
+
+**Observation**
+For 100 new tokens, LLaMA-8B achieves up to 98% template accuracy, with further gains expected as token count increases. Despite its smaller size (124M parameters), GPT-2 performs comparably. 
+
+While Slower, Larger Models Increase the Likelihood of Template Satisfaction
+
+
+
+### Ordered Constraint
+![Accuracy across models (Ordered Constraint)](assets/accuracy_comparison_across_models_template.png)
+
+
+![Time_per_token across models (Ordered Constraint)](assets/time_per_token_comparison_across_models_ordered.png)
+
+**Observation**
+A similar trend in accuracy and time is observed for ordered constraints; however, satisfaction rates decline due to the increased token span required to fulfill the constraint, as any number of intervening tokens are permitted between target words.
+
+While Slower, Larger Models Increase the Likelihood of Template Satisfaction
+
 
 ## The Issue and Pull Request to `huggingface/transformers`
 
