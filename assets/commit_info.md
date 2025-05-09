@@ -1,59 +1,3 @@
-# Enhancing Constraint Beam Decoding in Transformers library
-
-This repo is a wrapper repo to the forked [`huggingface/transformer`](https://github.com/jychen630/transformers) repo that aims to implement `TemplateConstraint` and `OrderedConstraint` features under the umbrella beam search constrained decoding.
-
-**File directories**
-
-- **generation/**: The core files we changed to the `transformers` library.
-
-- **test/**: Extensive test scripts or test cases for our features implementation.
-
-- **assets/**: Miscellenais files like images or other notekeeping files.
-
-## Contribution
-
-According to huggingface transformer repo issue [#27706](https://github.com/huggingface/transformers/issues/27706), `TemplateConstraint` is a useful constraint during beam search for constrained decoding. It's desired by the community. In response to this feature request, we implemented the `TemplateConstraint and OrderedConstraint` classes in `src/transformers/generation/beam_constraints.py`. We integrated the constraint workflow with `model.generate()` via corresponding logits processors in `src/transformers/generations/logits_process.py` and test cases in `tests/generation/test_beam_constraints.py`.
-
-## Installation Instructions
-
-To set up a conda environment and install this forked version of the `transformers` library, follow these steps:
-
-1. **Create and activate a new conda environment**:
-
-   ```bash
-   conda create --name hpml python=3.10.16
-   conda activate hpml
-   ```
-
-2. **Install the forked repository**:
-   ```bash
-   pip install git+https://github.com/jychen630/transformers@template_order_constraint
-   ```
-
-Our algorimth implementations are entierly reflected on `github.com/jychen630/transformers@template_order_constraint`. That's why you should install our branch on forked version of `transformers`, rather than the official transformer library.
-Namely, please dont do `pip install transformers` but do the installation through the https link above.
-
-3. **Install other dependencies**:
-
-   ```bash
-   pip install wandb torch
-   pip install 'accelerate>=0.26.0'
-   ```
-
-## The Issue and Pull Request to `huggingface/transformers`
-
-`TemplateConstraint` and `OrderedConstraint` are features desired by the community (espeicially the first one): Issue [#27706](https://github.com/huggingface/transformers/issues/27706) on `huggingface/transformers` shows community discussions about the feature request. Our team forked the repo, branched from their `main` and push our changes. We make a pull request to the them. [The PR #38030](https://github.com/huggingface/transformers/pull/38030) has passed the necessary CI checks and is pending maintainers' review. 
-
-![Our Pull Request (1)](assets/pr_38030_1.jpg)
-![Our Pull Request (2)](assets/pr_38030_2.jpg)
-
-Constrained beam search is the topical umbrella above `TemplateConstraint` and `OrderedConstraint`. Here is a friendly [introduction](https://huggingface.co/blog/constrained-beam-search).
-
-## Contribution breakdown
-
-The commits sorted by datetime in decreasing order are listed below.
-(Code that generate this: `assets/contribution.sh`)
-
 | Branch/Commit | Author       | Date_EST           | Title                                                                 |
 |---------------|--------------|--------------------|-----------------------------------------------------------------------|
 | [template_order_constraint/24e938b2b5](https://github.com/jychen630/transformers/commit/24e938b2b5) | Junyao Chen  | 2025-05-08 18:30:22 | "Add `TemplateConstraint` and `OrdredConstraint` features (#27706)"  |
@@ -85,5 +29,3 @@ The commits sorted by datetime in decreasing order are listed below.
 | [junyao_fast_single_template_constraint/29549db09c](https://github.com/jychen630/transformers/commit/29549db09c) | Raavi Gupta  | 2025-04-14 16:33:48 | "working slow template constraint"                                    |
 | [pranithan/ordered_constraints/29549db09c](https://github.com/jychen630/transformers/commit/29549db09c) | Raavi Gupta  | 2025-04-14 16:33:48 | "working slow template constraint"                                    |
 | [raavi/29549db09c](https://github.com/jychen630/transformers/commit/29549db09c) | Raavi Gupta  | 2025-04-14 16:33:48 | "working slow template constraint"                                    |
-
-
