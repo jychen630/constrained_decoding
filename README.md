@@ -51,6 +51,7 @@ Namely, please dont do `pip install transformers` but do the installation throug
 
 4. To run the test,
 ```
+#please make sure to change the sys.insert() in the python files inference_TemplateConstraint and inference_OrderedConstraint to point to local transformers library.
 cd test
 chmod +x run_inference.sh          # for TemplateConstraint class
 chmod +x run_inference_ordered.sh  # for OrderedConstraints class
