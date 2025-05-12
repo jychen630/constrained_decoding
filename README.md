@@ -1,5 +1,13 @@
 # Enhancing Constraint Beam Decoding in Transformers library
 
+## Team Information
+- **Members**:
+   - Junyao Chen (jc6385)
+   - Raavi Gupta (rg3637)
+   - Pranitha Natarajen (pn2435)
+
+
+## How to navigate this repo
 This repo is a wrapper repo to the forked [`huggingface/transformer`](https://github.com/jychen630/transformers) repo that aims to implement `TemplateConstraint` and `OrderedConstraint` features under the umbrella beam search constrained decoding.
 
 **File directories**
@@ -21,11 +29,11 @@ This directory contains code to evaluate template-constrained and ordered-constr
 
 - **assets/**: Miscellenais files like images or other notekeeping files.
 
-## Contribution
+## Relation to the `huggingface/transformers` library
 
 According to huggingface transformer repo issue [#27706](https://github.com/huggingface/transformers/issues/27706), `TemplateConstraint` is a useful constraint during beam search for constrained decoding. It's desired by the community. In response to this feature request, we implemented the `TemplateConstraint and OrderedConstraint` classes in `src/transformers/generation/beam_constraints.py`. We integrated the constraint workflow with `model.generate()` via corresponding logits processors in `src/transformers/generations/logits_process.py` and test cases in `tests/generation/test_beam_constraints.py`.
 
-## Installation Instructions
+## Reproducibility Instructions
 
 To set up a conda environment and install this forked version of the `transformers` library, follow these steps:
 
@@ -53,7 +61,7 @@ Namely, please dont do `pip install transformers` but do the installation throug
 
 4. To run the test,
 ```bash
-#please make sure to change the sys.insert() in the python files inference_TemplateConstraint and inference_OrderedConstraint to point to local transformers library.
+# please make sure to change the sys.insert() in the python files inference_TemplateConstraint and inference_OrderedConstraint to point to local transformers library.
 cd test
 chmod +x run_inference.sh          # for TemplateConstraint class
 chmod +x run_inference_ordered.sh  # for OrderedConstraints class
@@ -85,16 +93,21 @@ python3 demo.py
 In your local browser, visit `http://127.0.0.1:5000/`. It will render `templates/demo.html`.
 
 ## Results
+![Template constraint result table](assets/template_constraint_result_table.png)
 
-### Template Constraint
-- [🧾 Template-Constrained Generation W&B Report](https://wandb.ai/rg3637-columbia-university/template-constrained-gen-inference/reports/Template-Constraints--VmlldzoxMjY3OTE4NA?accessToken=methzkvxuzk9rp8zw857xepc9ppqe5syoekq5vacu9lj8q7ejnoe3i94j0shfbwd)
-- [🧾 Ordered-Constrained Generation W&B Report](https://wandb.ai/rg3637-columbia-university/ordered-constrained-gen-inference/reports/Ordered-Constraints--VmlldzoxMjY3OTE2Nw?accessToken=pwzkqsdabpjl6700vlx3s5jvgaudh7tjp3ib7ptz9bj28il8prtmcpezbxplzujz)
+![Ordered constraint result table](assets/ordered_constraint_result_table.png)
 
 
 ![Accuracy across models (Template Constraint)](assets/accuracy_comparison_across_models_template.png)
 
 
 ![Time_per_token across models (Template Constraint)](assets/time_per_token_comparison_across_models_template.png)
+
+### WandB report
+- [🧾 Template-Constrained Generation W&B Report](https://wandb.ai/rg3637-columbia-university/template-constrained-gen-inference/reports/Template-Constraints--VmlldzoxMjY3OTE4NA?accessToken=methzkvxuzk9rp8zw857xepc9ppqe5syoekq5vacu9lj8q7ejnoe3i94j0shfbwd)
+- [🧾 Ordered-Constrained Generation W&B Report](https://wandb.ai/rg3637-columbia-university/ordered-constrained-gen-inference/reports/Ordered-Constraints--VmlldzoxMjY3OTE2Nw?accessToken=pwzkqsdabpjl6700vlx3s5jvgaudh7tjp3ib7ptz9bj28il8prtmcpezbxplzujz)
+
+
 
 **Observation**
 For 100 new tokens, LLaMA-8B achieves up to 98% template accuracy, with further gains expected as token count increases. Despite its smaller size (124M parameters), GPT-2 performs comparably. 
@@ -124,7 +137,10 @@ While Slower, Larger Models Increase the Likelihood of Template Satisfaction
 
 Constrained beam search is the topical umbrella above `TemplateConstraint` and `OrderedConstraint`. Here is a friendly [introduction](https://huggingface.co/blog/constrained-beam-search).
 
-## Contribution breakdown
+
+> Update: As of May 12, 2025, the [pull request](https://github.com/huggingface/transformers/pull/38030) has been under review by a Huggingface community maintainer.
+
+## Team Contribution breakdown
 
 The commits sorted by datetime in decreasing order are listed below.
 (Code that generate this: `assets/contribution.sh`)
