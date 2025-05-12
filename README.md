@@ -17,6 +17,8 @@ This directory contains code to evaluate template-constrained and ordered-constr
    - Average generation time per sentence
    - Average time per token
 
+- **demo/**: Our demo web app code and screenshots shown in presentation.
+
 - **assets/**: Miscellenais files like images or other notekeeping files.
 
 ## Contribution
@@ -50,7 +52,7 @@ Namely, please dont do `pip install transformers` but do the installation throug
    ```
 
 4. To run the test,
-```
+```bash
 cd test
 chmod +x run_inference.sh          # for TemplateConstraint class
 chmod +x run_inference_ordered.sh  # for OrderedConstraints class
@@ -67,11 +69,19 @@ Beam sizes: 3, 5
 Maximum output lengths: 20, 100
 
 5. After generating output files, run:
-```
+```bash
 python get_metrics.py
 ```
 This will parse the .jsonl output files and print aggregated metrics including accuracy and inference time statistics.
 
+6. To run the demo, run
+```bash
+pip install flask
+cd demo
+python3 demo.py
+```
+
+In your local browser, visit `http://127.0.0.1:5000/`. It will render `templates/demo.html`.
 
 ## Results
 

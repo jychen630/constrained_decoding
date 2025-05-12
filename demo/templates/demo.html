@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Constrained Generation Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            color: #333;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        .highlight {
+            color: white;
+            background-color: #007acc;
+            padding: 2px 2px;
+            border-radius: 2px;
+        }
+        .output {
+            margin-bottom: 12px;
+            padding: 10px;
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            line-height: 1.5;
+            word-spacing: 8px;
+        }
+        #refresh-btn {
+            margin-bottom: 20px;
+            padding: 8px 16px;
+            background-color: #28a745;
+            color: white;
+            font-size: 14px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #refresh-btn:hover {
+            background-color: #218838;
+        }
+        .input-form {
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .input-form textarea {
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .input-form button {
+            padding: 8px 16px;
+            background-color: #007acc;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .input-form button:hover {
+            background-color: #005999;
+        }
+        .error {
+            color: red;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #fff0f0;
+            border: 1px solid #ffd7d7;
+            border-radius: 4px;
+        }
+        .constraint-type-switch {
+            margin-bottom: 20px;
+        }
+        .constraint-type-switch label {
+            margin-right: 20px;
+        }
+        .constraint-help {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Constrained Generation Dashboard</h1>
+
+    <div class="input-form">
+        <h3>Generate New Text</h3>
+        <textarea id="input-text" rows="3" placeholder="Enter starting text...">The woman attended</textarea>
+        
+        <div class="constraint-type-switch">
+            <label>
+                <input type="radio" name="constraint-type" value="template" checked> Template Constraints
+            </label>
+            <label>
+                <input type="radio" name="constraint-type" value="ordered"> Ordered Constraints
+            </label>
+        </div>
+        
+        <textarea id="constraints-input" rows="3" placeholder='Enter constraints as JSON array of arrays. Example: [[" the", "", " School", " of", "", " in"]]'></textarea>
+        <div class="constraint-help">
+            Template Constraints: The woman attended [[" the", "", " School", " of", "", " in"]]<br>
+            Ordered Constraints: dear colleagues  [[" will", " report",  " morning"]]
+        </div>
+        
+        <button onclick="generateText()">Generate</button>
+        <div id="error-message" class="error" style="display: none;"></div>
+    </div>
+
+    <button id="refresh-btn" onclick="loadDashboard()">Refresh</button>
+
+    <div class="section">
+        <h3>Model Used:</h3>
+        <p id="model-name">gpt2-xl</p>
+    </div>
+
+    <div class="section">
+        <h3>Constraint Templates:</h3>
+        <div id="constraints-display"></div>
+    </div>
+
+    <div class="section">
+        <h3>Generated Outputs:</h3>
+        <div id="outputs"></div>
+    </div>
+
+    <script>
+        function showError(message) {
+            const errorDiv = document.getElementById('error-message');
+            errorDiv.textContent = message;
+            errorDiv.style.display = 'block';
+            setTimeout(() => {
+                errorDiv.style.display = 'none';
+            }, 5000);
+        }
+
+        function highlightConstraints(text, phrases) {
+            let result = text;
+            let offset = 0;
+            
+            for (const phrase of phrases) {
+                if (!phrase) continue;
+                const pos = result.toLowerCase().indexOf(phrase.toLowerCase());
+                if (pos !== -1) {
+                    result = result.slice(0, pos) + 
+                            `<span class="highlight">${result.slice(pos, pos + phrase.length)}</span>` + 
+                            result.slice(pos + phrase.length);
+                }
+            }
+            return result;
+        }
+
+        function generateText() {
+            const inputText = document.getElementById('input-text').value;
+            const constraintsText = document.getElementById('constraints-input').value;
+            const constraintType = document.querySelector('input[name="constraint-type"]:checked').value;
+            
+            if (!inputText) {
+                showError('Please enter some input text');
+                return;
+            }
+            
+            let constraints;
+            try {
+                constraints = JSON.parse(constraintsText);
+                
+                if (!Array.isArray(constraints)) {
+                    throw new Error('Constraints must be an array');
+                }
+                
+                for (const constraint of constraints) {
+                    if (!Array.isArray(constraint)) {
+                        throw new Error('Each constraint must be an array');
+                    }
+                    for (const segment of constraint) {
+                        if (typeof segment !== 'string' && segment !== null) {
+                            throw new Error('Each segment must be a string or null');
+                        }
+                    }
+                }
+            } catch (e) {
+                showError('Invalid constraints format. Please check the example format.');
+                return;
+            }
+            
+            const endpoint = constraintType === 'template' ? '/generate' : '/generate_ordered';
+            
+            fetch(endpoint, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    input_text: inputText,
+                    constraints: constraints
+                })
+            })
+            .then(response => {
+                if (!response.ok) {
+                    return response.json().then(data => {
+                        throw new Error(data.error || 'Error generating text');
+                    });
+                }
+                return response.json();
+            })
+            .then(data => {
+                updateDashboard(data);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                showError(error.message);
+            });
+        }
+
+        function updateDashboard(data) {
+            document.getElementById("model-name").textContent = data.model_name;
+
+            // Get the constraints from the input box
+            const constraintsText = document.getElementById("constraints-input").value;
+            let constraints;
+            try {
+                constraints = JSON.parse(constraintsText);
+            } catch (e) {
+                constraints = [];
+            }
+
+            const constraintsContainer = document.getElementById("constraints-display");
+            constraintsContainer.innerHTML = "";
+            constraints.forEach((constraint, index) => {
+                const p = document.createElement("p");
+                p.textContent = `Constraint ${index + 1}: ${JSON.stringify(constraint)}`;
+                constraintsContainer.appendChild(p);
+            });
+
+            const outputContainer = document.getElementById("outputs");
+            outputContainer.innerHTML = "";
+
+            data.outputs.forEach(output => {
+                const div = document.createElement("div");
+                div.className = "output";
+                div.innerHTML = highlightConstraints(output, data.constraint.flat().filter(w => w));
+                outputContainer.appendChild(div);
+            });
+        }
+
+        function loadDashboard() {
+            fetch('/dashboard_data.json')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Failed to load dashboard data');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    updateDashboard(data);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    showError('Failed to load dashboard data');
+                });
+        }
+
+        // Initial load
+        loadDashboard();
+    </script>
+</body>
+</html>
