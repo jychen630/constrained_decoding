@@ -8,7 +8,7 @@
 
 
 ## How to navigate this repo
-This repo is a wrapper repo to the forked [`huggingface/transformer`](https://github.com/jychen630/transformers) repo that aims to implement `TemplateConstraint` and `OrderedConstraint` features under the umbrella beam search constrained decoding.
+This repo is a wrapper repo to the forked [`huggingface/transformer`](https://github.com/jychen630/transformers) repo that aims to implement `TemplateConstraint` and `OrderedConstraint` features under the umbrella of `transformers/generation` module, beam search constrained decoding.
 
 **File directories**
 
